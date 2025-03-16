@@ -1,0 +1,124 @@
+<div class="crumbs-area">
+    <div class="container">
+        <div class="crumb-content">
+            <h4 class="crumb-title"><span>Détails</span> {{course.title}}</h4>
+        </div>
+    </div>
+</div>
+<div class="course-area ptb--120">
+    <div class="container">
+        <div class="row">
+            <!-- course details start -->
+            <div class="col-lg-8 col-md-8">
+                <div class="course-details">
+                    <div class="cs-thumb mb-5">
+                        <img src="{{course.image}}" alt="image" style="width: 100%">
+                        <span class="cs-price">${{course.price}}/h</span>
+                        <div class="csd-hv-info has-color align-items-center">
+                            <div class="course-dt-info">
+                                <ul class="course-meta-details list-inline  w-100">
+                                    <li>
+                                        <p>Tuteur</p>
+                                        <span>{{course.user.last_name}}</span>
+                                    </li>
+                                    <li>
+                                        <p>Catégorie</p>
+                                        <span>{{course.category.name}}</span>
+                                    </li>
+                                    <li>
+                                        <p>Durée</p>
+                                        <span>{{course.duration}}h</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="course-meta-stats">
+                                <li><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></li>
+                                <li>36 <i class="fa fa-comment"></i></li>
+                                <li>85 <i class="fa fa-heart"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cs-content">
+                        <h3 class="mb-4"><a href="#">{{course.title}} </a></h3>
+                        <p>{{course.description}}</p>
+                        <div class="cs-post-share">
+                            <div class="row align-items-center">
+                                <button class="btn btn-primary btn-round" type="submit" (click)="getReservation(course.id)">S'inscrire<i class="fa fa-long-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- course details end -->
+            <!-- sidebar start -->
+            <div class="col-lg-4 col-md-4">
+                <div class="sidebar">
+                    <!-- widget nstructor start -->
+                    <div class="widget widget-instructor">
+                        <h4 class="widget-title">Tuteur</h4>
+                        <div class="instructor">
+                            <div class="post-author-info">
+                                <div class="thumb">
+                                    <img src="{{course.user.image}}" alt="image">
+                                </div>
+                                <h5>{{ course.user.last_name }}</h5>
+                                <h5>{{ course.user.first_name }}</h5>
+                                <p>{{course.user.description}}.</p>
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- widget nstructor end -->
+                    <!-- widget offer end -->
+                    <!-- widget course start -->
+                    <div class="widget widget-course">
+                        <h4 class="widget-title">Latest Courses</h4>
+                        <div class="course-list">
+                            <div class="w-cs-single">
+                                <img src="assets/images/course/cs-small-thumb1.jpg" alt="image">
+                                <div class="fix">
+                                    <p><a href="#">Ui / Ux Design</a></p>
+                                    <span><i class="fa fa-clock-o"></i> AUGUST 6, 2017</span>
+                                </div>
+                            </div>
+                            <div class="w-cs-single">
+                                <img src="assets/images/course/cs-small-thumb2.jpg" alt="image">
+                                <div class="fix">
+                                    <p><a href="#">Learn Java</a></p>
+                                    <span><i class="fa fa-clock-o"></i> AUGUST 6, 2017</span>
+                                </div>
+                            </div>
+                            <div class="w-cs-single">
+                                <img src="assets/images/course/cs-small-thumb3.jpg" alt="image">
+                                <div class="fix">
+                                    <p><a href="#">C++</a></p>
+                                    <span><i class="fa fa-clock-o"></i> AUGUST 6, 2017</span>
+                                </div>
+                            </div>
+                            <div class="w-cs-single">
+                                <img src="assets/images/course/cs-small-thumb4.jpg" alt="image">
+                                <div class="fix">
+                                    <p><a href="#">Seo</a></p>
+                                    <span><i class="fa fa-clock-o"></i> AUGUST 6, 2017</span>
+                                </div>
+                            </div>
+                            <div class="w-cs-single">
+                                <img src="assets/images/course/cs-small-thumb5.jpg" alt="image">
+                                <div class="fix">
+                                    <p><a href="#">Python</a></p>
+                                    <span><i class="fa fa-clock-o"></i> AUGUST 6, 2017</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sidebar end -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<app-slider-bar></app-slider-bar>
+<!-- course area start -->
+<div class="course-area  pt--120 pb--70">
+    <div class="container">
+        <div class="row">
+            <!-- course single start -->
+            <div *ngFor="let course of courses;" class="col-lg-4 col-md-6">
+                <div class="card mb-5">
+                    <div class="course-thumb">
+                        <img src="{{course.image}}" alt="image" style="height: 250px!important; width: 100%">
+                        <span class="cs-price primary-bg">${{course.price}}/h</span>
+                    </div>
+                    <div class="card-body  p-25">
+                        <div class="course-meta-title mb-4">
+                            <div class="course-meta-text">
+                                <h5 style="font-size: 12px!important;"><a href="#">{{ course.title}}</a></h5>
+                            </div>
+                            <a href="#"><img class="course-meta-thumbnail rounded-circle" src="{{course.user.image}}" alt="image"> </a>
+                        </div>
+                        <ul class="course-meta-details list-inline  w-100">
+                            <li>
+                                <p>Tuteur</p>
+                                <span>{{course.user.last_name}} </span>
+                            </li>
+                            <li>
+                                <p>Catégorie</p>
+                                <span>{{ course.category.name }}</span>
+                            </li>
+                            <li>
+                                <p>Duration</p>
+                                <span>{{course.duration }}h</span>
+                            </li>
+                        </ul>
+                    </div><!-- card-body -->
+                    <div class="card-footer text-center">
+                        <a routerLink="/show-course/{{course.id}}" class="btn btn-primary">Voir détails</a>
+                    </div>
+                </div><!-- card -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- course area end -->

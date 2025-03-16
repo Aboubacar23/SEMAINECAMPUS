@@ -1,0 +1,129 @@
+<!-- header area start -->
+<header id="header">
+    <!-- header two area start -->
+    <div class="header-two">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-sm-6 d-block d-lg-none">
+                    <div class="logo">
+                    </div>
+                </div>
+                <div class="col-lg-9 offset-lg-1 d-none d-lg-block">
+                    <div class="main-menu menu-style2">
+                        <nav>
+                            <ul id="m_menu_active">
+                                <li class="active"><a routerLink="/">Accueil</a></li>
+                                <li><a routerLink="/list-tuteur">Tuteurs</a></li>
+                                <li class="middle-logo">
+                                    <a href="#">
+                                        <img src="../../../assets/images/icon/logo-middle.png" alt="logo" style="height: 100px!important;">
+                                        <img class="hb-bottom-shape" src="../../../assets/images/icon/hb-bottom-shape.png" alt="logo">
+                                    </a>
+                                </li>
+                                <li><a href="#">Events</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li *ngIf="isLoggedIn" routerLink="/profil"><a href="#">Mom Compte</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-5">
+                    <div class="header-bottom-right-style-2">
+                        <ul>
+                            <li *ngIf="!isLoggedIn"><a data-toggle="modal" data-target="#exampleModal" class="btn btn-light btn-round" href="#">Log in</a></li>
+                            <li *ngIf="!isLoggedIn"><a data-toggle="modal" data-target="#exampleModal2"  class="btn btn-primary btn-round active" href="#">Sign Up</a></li>
+                            <li *ngIf="isLoggedIn"><a (click)="logout()"  class="btn btn-primary btn-round active" href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="login-form mt-4" [formGroup]="loginForm" (ngSubmit)="login()">
+                                        <div class="row">
+                                            <p class="text-danger" *ngIf="submitted && isLoginFaild">{{ errorMessage }}</p>
+                                        </div>
+                                        <input type="email" placeholder="Enter Your Email.." required=""
+                                                     formControlName="email" name="email"
+                                                     [ngClass]="{'is-invalid' : submitted && loginForm.controls['email'].hasError('required')}"
+                                        >
+                                        <div class="text-danger" *ngIf="submitted && loginForm.controls['email'].hasError('required')">
+                                            l'email est obligatoire
+                                        </div>
+                                        <input type="password" placeholder="Enter Your Password"
+                                               formControlName="password" name="password"
+                                               [ngClass]="{'is-invalid' : submitted && loginForm.controls['password'].hasError('required')}"
+                                        >
+
+                                        <div class="text-danger" *ngIf="submitted && loginForm.controls['password'].hasError('required')">
+                                            le mot de passe est obligatoire
+                                        </div>
+                                        <label class="checkbox-inline mr-5"><input type="checkbox" value="">Remember Me</label>
+                                        <a class="primary-color" href="#"><u>Forgot password</u></a>
+                                        <button class="btn btn-primary btn-sm" type="submit">Se Connecter</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content p-5">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Veuillez vous inscrire ici</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="signup-form text-center" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                                        <div class="row">
+                                            <div class="col-lg-6"><input formControlName="first_name" name="first_name" type="text" placeholder="First Name"></div>
+                                            <div class="col-lg-6"><input formControlName="last_name" name="last_name" type="text" placeholder="Last Name"></div>
+                                        </div>
+                                        <input type="email" placeholder="Enter Your Email.." required=""
+                                               formControlName="email" name="email"
+                                               [ngClass]="{'is-invalid' : submitted && userForm.controls['email'].hasError('required')}"
+                                        >
+                                        <div class="text-danger" *ngIf="submitted && userForm.controls['email'].hasError('required')">
+                                            l'email est obligatoire
+                                        </div>
+                                        <select class="form-group ps-5" formControlName="role" name="role">
+                                            <option value="" disabled>Choisir</option>
+                                            <option value="teacher">Tuteur</option>
+                                            <option value="student">Etudiant</option>
+                                        </select>
+                                        <input type="password" placeholder="Enter Your Password"
+                                               formControlName="password" name="password"
+                                               [ngClass]="{'is-invalid' : submitted && userForm.controls['password'].hasError('required')}"
+                                        >
+
+                                        <div class="text-danger" *ngIf="submitted && userForm.controls['password'].hasError('required')">
+                                            le mot de passe est obligatoire
+                                        </div>
+
+                                        <button class="btn btn-primary btn-sm" type="submit">S'inscrire</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- col-lg-2 -->
+                <div class="col-12 d-block d-lg-none">
+                    <div id="mobile_menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header two area end -->
+</header>
+<!-- header area end -->
+

@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.toast-container {
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
+select, input {
+  height: 40px; /* Ajustez selon la hauteur de vos inputs */
+  width: 100%;
+  padding: 8px; /* Assurez une bonne apparence */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
